@@ -32,3 +32,5 @@
 *.apk
 *.aab
 *.unitypackage
+Assets/Scripts.zip
+Assets/Scripts/Inventory/Item/Icons
