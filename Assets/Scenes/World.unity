@@ -990,8 +990,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3cafde3ac80114dafeaac0fdc4969e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  pickupPrefab: {fileID: 0}
-  playerTransform: {fileID: 0}
+  pickupPrefab: {fileID: 5076580891615305617, guid: e452ccdef7c9bb24eb7da32438e68fb5, type: 3}
+  playerTransform: {fileID: 294619319}
   slots1:
   - item: {fileID: 0}
     count: 0

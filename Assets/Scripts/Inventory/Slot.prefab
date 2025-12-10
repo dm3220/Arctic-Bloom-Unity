@@ -165,8 +165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae2b49160f1efc46add23a6ffa8601f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlotUI
-  iconImage: {fileID: 0}
-  countText: {fileID: 0}
+  index: 0
+  icon: {fileID: 5902023086252525182}
+  amountText: {fileID: 8911737544907357006}
+  item: {fileID: 0}
+  amount: 0
 --- !u!1 &8696654339609601034
 GameObject:
   m_ObjectHideFlags: 0
