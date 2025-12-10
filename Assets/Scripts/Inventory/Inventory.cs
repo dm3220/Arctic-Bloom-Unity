@@ -21,11 +21,18 @@ public class Inventory : MonoBehaviour// логика инвентаря
 {
     public static Inventory Instance {  get; private set; }
 
-    public ItemStack[] slots = new ItemStack[8];//8 слотов
+    [Header("Drop settings")]
+    [SerializeField] private GameObject pickupPrefab;
+    [SerializeField] private Transform playerTransform;
+
+    public ItemStack[] slots1 = new ItemStack[8];//8 слотов
 
     public int activeIndex = 0;//какой слот активный
 
     public event Action OnChanged;
+
+    [Header("UI Slots")]
+    public InventorySlotUI[] slots;
 
     private void Awake()
     {
@@ -37,21 +44,21 @@ public class Inventory : MonoBehaviour// логика инвентаря
 
         Instance = this;
 
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < slots1.Length; i++)
         {
-            slots[i] = new ItemStack();
+            slots1[i] = new ItemStack();
         }
     }
 
     public void SetActive(int index)
     {
-        activeIndex = Mathf.Clamp(index, 0, slots.Length - 1);
+        activeIndex = Mathf.Clamp(index, 0, slots1.Length - 1);
         OnChanged?.Invoke();
     }
 
     public ItemStack GetActive()
     {
-        return slots[activeIndex];
+        return slots1[activeIndex];
     }
 
     public bool Add(ItemData item, int amount = 1)
@@ -59,9 +66,9 @@ public class Inventory : MonoBehaviour// логика инвентаря
         if (item == null || amount <= 0)
             return false;
 
-        for (int i = 0; i < slots.Length && amount > 0; i++)
+        for (int i = 0; i < slots1.Length && amount > 0; i++)
         {
-            ItemStack s = slots[i];
+            ItemStack s = slots1[i];
 
             if (s.item == item && s.count < item.maxStack)
             {
@@ -73,9 +80,9 @@ public class Inventory : MonoBehaviour// логика инвентаря
             }
         }
 
-        for (int i = 0; i < slots.Length && amount > 0; i++)
+        for (int i = 0; i < slots1.Length && amount > 0; i++)
         {
-            ItemStack s = slots[i];
+            ItemStack s = slots1[i];
 
             if (s.isEmpty)
             {
@@ -95,9 +102,9 @@ public class Inventory : MonoBehaviour// логика инвентаря
 
     public bool RemoveFromSlot(int index, int amount = 1)
     {
-        if (index < 0 || index >= slots.Length) return false;
+        if (index < 0 || index >= slots1.Length) return false;
 
-        ItemStack s = slots[index];
+        ItemStack s = slots1[index];
 
         if (s.isEmpty || amount <= 0)
         {
@@ -118,5 +125,74 @@ public class Inventory : MonoBehaviour// логика инвентаря
     public bool RemoveFromActive(int amount = 1)
     {
         return RemoveFromSlot(activeIndex, amount);
+    }
+
+    public void DropItem(int index)
+    {
+        if (index < 0 || index >= slots1.Length)
+        {
+            Debug.LogWarning("DropFromSlot: неверный индекс слота " + index);
+            return;
+        }
+
+        ItemStack s = slots1[index];
+
+        if (s.isEmpty)
+        {
+            Debug.Log("DropFromSlot: слот пуст, дроп невозможен");
+            return;
+        }
+
+        if (pickupPrefab == null)
+        {
+            Debug.LogWarning("DropFromSlot: pickupPrefab не назначен в инспекторе");
+            return;
+        }
+
+        if (playerTransform == null)
+        {
+            Debug.LogWarning("DropFromSlot: playerTransform не назначен в инспекторе");
+            return;
+        }
+
+        ItemData item = s.item;
+        int amount = s.count;
+
+        bool removed = RemoveFromSlot(index, amount);
+
+        if (!removed)
+        {
+            Debug.Log("DropFromSlot: не удалось удалить предмет из инвентаря, дроп отменен");
+            return;
+        }
+
+        Vector3 spawnPos = playerTransform.position + new Vector3(2f,1f,0f);
+
+        GameObject go = Instantiate(pickupPrefab, spawnPos, Quaternion.identity);
+
+        SimplePickupItem pickup = go.GetComponent<SimplePickupItem>();
+        if (pickup != null)
+        {
+            pickup.item = item;
+            pickup.amount = amount;
+        }
+    }
+
+    public void RefreshUI()
+    {
+        if (slots == null || slots.Length == 0)
+            return;
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (i < slots1.Length && slots1[i] != null && !slots1[i].isEmpty)
+            {
+                slots[i].SetItem(slots1[i].item, slots1[i].count);
+            }
+            else
+            {
+                slots[i].ClearSlot();
+            }
+        }
     }
 }

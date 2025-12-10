@@ -31,11 +31,11 @@ public class InventoryUI : MonoBehaviour//связь между Inventory и в�
         if (inventory == null || slotUIs == null)
             return;
 
-        int len = Mathf.Min(slotUIs.Length, inventory.slots.Length);
+        int len = Mathf.Min(slotUIs.Length, inventory.slots1.Length);
 
         for (int i = 0; i < len; i++)
         {
-            slotUIs[i].Set(inventory.slots[i]);
+            slotUIs[i].SetItem(inventory.slots1[i]);
         }
     }
 }
