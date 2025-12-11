@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     [Header("Panels")]
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject settingPanel;
+    [SerializeField] private GameObject helpPanel;
 
     public void Start()
     {
@@ -33,12 +34,25 @@ public class MainMenu : MonoBehaviour
 
     public void OpenHelp()
     {
+        if (helpPanel != null) helpPanel?.SetActive(true);
+    }
 
+    public void CloseHelp()
+    {
+        if (helpPanel != null) helpPanel?.SetActive(false);
     }
 
     public void ExitGame()
     {
-        Application.Quit();
+        Debug.Log("ExitGame CLICKED");
+
+    #if UNITY_EDITOR
+        // В редакторе — просто выходим из Play Mode
+        UnityEditor.EditorApplication.isPlaying = false;
+    #else
+    // В любом нормальном билде (Windows, Linux, Android и т.д.)
+    Application.Quit();
+    #endif
     }
 
     public void SetVolume(float value)
