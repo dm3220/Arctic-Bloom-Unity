@@ -44,6 +44,8 @@ public class Inventory : MonoBehaviour// логика инвентаря
 
         Instance = this;
 
+        DontDestroyOnLoad(gameObject);
+
         for (int i = 0; i < slots1.Length; i++)
         {
             slots1[i] = new ItemStack();
