@@ -697,12 +697,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07fb7d2656213b6438b3a7b594909656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth2D
-  attackHitbox: {fileID: 1176578984}
   maxHealth: 100
+  animator: {fileID: 888588123}
   attackCooldown: 0.5
   attackRange: 0.7
-  Attackdamage: 9
-  animator: {fileID: 888588123}
+  attackDamage: 10
+  attackOffset: {x: 0.6, y: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!95 &888588123 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1215219207874592071, guid: ced36fdce8503e94481c3b5dc36bd109, type: 3}
@@ -6130,7 +6133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1262691589}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6263,7 +6266,7 @@ GameObject:
   - component: {fileID: 1950962001}
   - component: {fileID: 1950962000}
   - component: {fileID: 1950962002}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}

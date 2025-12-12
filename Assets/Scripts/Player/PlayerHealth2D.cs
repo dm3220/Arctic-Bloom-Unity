@@ -1,56 +1,64 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth2D : MonoBehaviour
 {
-    [SerializeField] Attack attackHitbox;
+    [Header("Health")]
     [SerializeField] private int maxHealth = 100;
-    private int currentHealth;
-    private bool isDead;
+    [SerializeField] private Animator animator;
+
     [Header("Attack")]
     [SerializeField] private float attackCooldown = 0.5f;
     [SerializeField] private float attackRange = 0.9f;
-    [SerializeField] public int Attackdamage = 9;
+    [SerializeField] private int attackDamage = 9;
+    [SerializeField] private Vector2 attackOffset = new Vector2(0.6f, 0f);
+    [SerializeField] private LayerMask enemyLayer;
 
-    private float lastAttackTime = 0f;
+    private int currentHealth;
+    private bool isDead;
+    private float lastAttackTime;
     private bool isAttacking;
-    [SerializeField] private Animator animator;
 
     private void Awake()
     {
         currentHealth = maxHealth;
+
+        // На случай, если забыли назначить в инспекторе
+        if (animator == null)
+            animator = GetComponent<Animator>();
     }
 
-    public void Update()
+    private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isDead) TryAttack();
+        if (isDead) return;
 
-        if (isAttacking) return;
+        if (Input.GetKeyDown(KeyCode.Q))
+            TryAttack();
     }
 
     public void TakeDamage(int damage)
     {
+        if (isDead) return;
+
         currentHealth -= damage;
         Debug.Log($"Player HP: {currentHealth}");
 
         if (currentHealth <= 0)
-        {
             Die();
-        }
     }
 
-    public void Die()
+    private void Die()
     {
         if (isDead) return;
+
         isDead = true;
         Debug.Log("Player die!");
         animator.SetTrigger("Dead");
     }
 
-    public void TryAttack()
+    private void TryAttack()
     {
         if (isAttacking) return;
-        if (isDead) return ;
-
         if (Time.time - lastAttackTime < attackCooldown) return;
 
         lastAttackTime = Time.time;
@@ -60,9 +68,40 @@ public class PlayerHealth2D : MonoBehaviour
         animator.SetTrigger("Attack");
     }
 
+    // Вызывай ЭТОТ метод Animation Event'ом в момент удара
+    public void DealDamage()
+    {
+        Debug.Log("DealDamage CALLED");
+        // Направление по твоему развороту localScale.x (вправо +, влево -)
+        float dir = transform.localScale.x >= 0 ? 1f : -1f; // :contentReference[oaicite:0]{index=0}
+
+        Vector2 attackPoint = (Vector2)transform.position +
+                              new Vector2(attackOffset.x * dir, attackOffset.y);
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint, attackRange, enemyLayer);
+
+        // защита от двойного урона, если у врага несколько коллайдеров
+        var damaged = new HashSet<EnemyMelee2D>();
+        foreach (var hit in hits)
+        {
+            var enemy = hit.GetComponent<EnemyMelee2D>();
+            if (enemy != null && damaged.Add(enemy))
+                enemy.TakeDamage(attackDamage);
+        }
+    }
+
+    // Вызывай Animation Event'ом в конце атаки
     public void AttackEndP()
     {
         Debug.Log("ATTACK END! PLAYER");
         isAttacking = false;
+    }
+
+    // (Опционально) чтобы видеть радиус удара в сцене
+    private void OnDrawGizmosSelected()
+    {
+        float dir = transform.localScale.x >= 0 ? 1f : -1f; // :contentReference[oaicite:1]{index=1}
+        Vector2 p = (Vector2)transform.position + new Vector2(attackOffset.x * dir, attackOffset.y);
+        Gizmos.DrawWireSphere(p, attackRange);
     }
 }
