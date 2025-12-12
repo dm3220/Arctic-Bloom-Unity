@@ -6087,7 +6087,7 @@ Transform:
   m_GameObject: {fileID: 1262691588}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.176, y: -0.043, z: 0}
+  m_LocalPosition: {x: 0.72, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6302,7 +6302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMelee2D
   moveSpeed: 20
-  stoppingDistance: 1.2
+  stoppingDistance: 1.8
   stoppingBuffer: 0.1
   chaseDistance: 8
   damage: 10
@@ -6374,17 +6374,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.021248836, y: -0.007082939}
+  m_Offset: {x: -0.0661149, y: -0.18180859}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.4166667, y: 2.5}
+    oldSize: {x: 2.6666667, y: 2.6666667}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.27750233, y: 0.33416587}
+  m_Size: {x: 1.8849764, y: 2.5007632}
   m_EdgeRadius: 0
 --- !u!1 &2121249094
 GameObject:
