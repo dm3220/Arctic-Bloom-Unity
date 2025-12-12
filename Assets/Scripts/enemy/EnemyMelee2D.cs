@@ -97,11 +97,13 @@ public class EnemyMelee2D : MonoBehaviour
         lastAttackTime = Time.time;
 
         isAttacking = true;
+        Debug.Log("ATTACK START");
         animator.SetTrigger("Attack");
     }
 
     public void OnAttackAnimationEnd()
     {
+        Debug.Log("ATTACK END");
         isAttacking = false;
     }
 
