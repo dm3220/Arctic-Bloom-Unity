@@ -75,14 +75,12 @@ public class GameManager : MonoBehaviour
     [Header("Shelter")]
     [Tooltip("Находится ли игрок в укрытии.")]
     public bool inShelter = false;
-    public event Action<bool> OnShelterChanged;
 
     /// <summary>Установить состояние 'в укрытии'.</summary>
     public void SetShelter(bool isInShelter)
     {
         if (inShelter == isInShelter) return;
         inShelter = isInShelter;
-        OnShelterChanged?.Invoke(inShelter);
         Debug.Log(inShelter ? "Игрок вошел в укрытие" : "Игрок вышел из укрытия");
     }
 
@@ -94,6 +92,5 @@ public class GameManager : MonoBehaviour
         OnTimeChanged?.Invoke(GetTimeString());
         OnTemperatureChanged?.Invoke(temperature);
         OnEnergyChanged?.Invoke(energy);
-        OnShelterChanged?.Invoke(inShelter);
     }
 }

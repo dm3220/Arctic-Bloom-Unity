@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class TemperatureSystem : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class TemperatureSystem : MonoBehaviour
         if (!gm.inShelter)
         {
             gm.ChangeTemperature(outdoorCoolingPerSec * Time.deltaTime);
+            Debug.Log(outdoorCoolingPerSec);
         }
     }
 }
