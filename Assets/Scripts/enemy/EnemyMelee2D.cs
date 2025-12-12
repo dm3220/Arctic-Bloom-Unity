@@ -18,7 +18,7 @@ public class EnemyMelee2D : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
 
     [Header("HP")]
-    [SerializeField] private int maxHealth = 20;
+    [SerializeField] public int maxHealth = 20;
 
     private int currentHealth;
     private Transform player;
@@ -48,7 +48,6 @@ public class EnemyMelee2D : MonoBehaviour
     {
         if (isDead) return;
         if (player == null) return;
-
         if (isAttacking) return;
 
         float distance = Vector2.Distance(transform.position, player.position);
@@ -150,6 +149,7 @@ public class EnemyMelee2D : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            animator.SetTrigger("Die");
         }
     }
 
