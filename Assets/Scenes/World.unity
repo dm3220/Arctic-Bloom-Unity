@@ -185,7 +185,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4445557801803842434, guid: ced36fdce8503e94481c3b5dc36bd109, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1014374760}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3033211961761466787, guid: ced36fdce8503e94481c3b5dc36bd109, type: 3}
       insertIndex: -1
@@ -711,6 +714,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 1215219207874592071, guid: ced36fdce8503e94481c3b5dc36bd109, type: 3}
   m_PrefabInstance: {fileID: 28381209}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &888588132 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4445557801803842434, guid: ced36fdce8503e94481c3b5dc36bd109, type: 3}
+  m_PrefabInstance: {fileID: 28381209}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &909384119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,7 +1144,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 15
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1307,7 +1315,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.05
+      scalar: 0.3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1692,7 +1700,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 5, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 15, y: 1, z: 1}
+    m_Scale: {x: 120, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -1890,7 +1898,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5784,12 +5792,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014374756}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 888588132}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1085008526
 GameObject:
@@ -6851,7 +6859,6 @@ SceneRoots:
   - {fileID: 538318046}
   - {fileID: 1177477322}
   - {fileID: 789734712}
-  - {fileID: 1014374760}
   - {fileID: 1732024089}
   - {fileID: 2121249098}
   - {fileID: 909384123}
