@@ -63,7 +63,7 @@ public class BookUIController : MonoBehaviour
         currentSpreadIndex = 0;
 
         if (titleTMP != null)
-            titleTMP.text = (type == BookType.Tutorial) ? "Обучение" : "Лор";
+            titleTMP.text = (type == BookType.Tutorial) ? "Обучение" : "Лор игры";
 
         if (helpMenuPanel !=null) helpMenuPanel.SetActive(false);
         if (bookPanel !=null) bookPanel.SetActive(true);

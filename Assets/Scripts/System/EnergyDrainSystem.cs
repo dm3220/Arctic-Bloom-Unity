@@ -7,14 +7,11 @@ public class EnergyDrainSystem : MonoBehaviour
         var gm = GameManager.Instance;
         if (gm == null) return;
 
-        // Базовая скорость (в %/сек)
         float drain = gm.baseEnergyDrainPerSec;
 
-        // Если в укрытии — дренаж медленнее
         if (gm.inShelter)
             drain *= gm.shelterDrainMultiplier;
 
-        // Сколько снять за этот кадр
         float delta = drain * Time.deltaTime;
 
         if (delta > 0f)
