@@ -549,9 +549,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 416
-        y: 416
-        width: 32
-        height: 32
+        y: 352
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -562,50 +562,6 @@ TextureImporter:
       bones: []
       spriteID: 142939c7ac4a832429d694ed0bbe12e6
       internalID: 500700549
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: InteriorTilesLITE_10
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5c3acc7f449d6074fb3f0993e3604c60
-      internalID: -1049383144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: InteriorTilesLITE_11
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2a7184d8226bcc438f1473ba9194abe
-      internalID: -95565545
       vertices: []
       indices: 
       edges: []
@@ -897,72 +853,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: InteriorTilesLITE_25
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 384
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c4e6f96a827cc94a94881699233e2d4
-      internalID: 1587515230
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: InteriorTilesLITE_26
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 384
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3003df04fcf59974bab21b98b8c0d32b
-      internalID: -481750132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: InteriorTilesLITE_27
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 384
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 84808fada899b1945b9bb71fb96283c6
-      internalID: 1618421976
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: InteriorTilesLITE_28
       rect:
         serializedVersion: 2
@@ -1200,72 +1090,6 @@ TextureImporter:
       bones: []
       spriteID: 6dc7bf00e06c20346987db250a6d3d8a
       internalID: -1330130194
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: InteriorTilesLITE_39
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 516c60e237601a842a3cab3d92755d9d
-      internalID: -1502119727
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: InteriorTilesLITE_40
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3145ed8bc68d9d4dae15ac927a7dfd0
-      internalID: 1751109030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: InteriorTilesLITE_41
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3471bd09c8dba643ba15fab982fe1e2
-      internalID: -1614398717
       vertices: []
       indices: 
       edges: []
